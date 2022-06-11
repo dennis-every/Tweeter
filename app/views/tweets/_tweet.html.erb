@@ -1,4 +1,4 @@
-<div id="<%= dom_id tweet %>">
+<%= turbo_frame_tag dom_id(tweet) do %>
   <div class="card">
     <div class="card-body">
       <p>
@@ -6,8 +6,8 @@
         <%= tweet.body %>
       </p>
 
-      Likes: (<%= tweet.likes_count %>) | Retweets: (<%= tweet.retweets_count %>)
+      Likes: (<%= tweet.likes_count %>) | Retweets: (<%= tweet.retweets_count %>) | <%= link_to 'Edit', edit_tweet_path(tweet) %>
 
     </div>
   </div>
-</div>
+<% end %>

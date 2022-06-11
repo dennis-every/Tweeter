@@ -2,6 +2,16 @@
 
 <h1>Tweeter</h1>
 
-<%= render 'tweets/form', tweet: @tweet %>
+<%= turbo_stream_from 'tweets' %>
+
+<%= turbo_frame_tag "tweet_form" do %>
+  <%= render 'tweets/form', tweet: @tweet %>
+<% end %>
+
 <div class="clearfix"></div><hr>
-<%= render @tweets %>
+
+
+<%= turbo_frame_tag 'tweets' do %>
+  <%= render @tweets %>
+<% end %>
+<div class="clearfix"></div><br><br><br>
